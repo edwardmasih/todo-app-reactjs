@@ -9,7 +9,6 @@ class App extends React.Component {
     super()
     this.state = {
       todos: todosData,
-      isLoggedIn: false,
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -27,7 +26,6 @@ class App extends React.Component {
 
         return ({
           todos: updatedTodos,
-          isLoggedIn: !prevState.isLoggedIn
         })
     })
   }
@@ -38,8 +36,6 @@ class App extends React.Component {
     return (
       <div className="todo-list">
           {todoItems}
-          <button onClick={this.handleChange}>{this.state.isLoggedIn ? "Log Out" : "Log In"}</button>
-          <h4>{this.state.isLoggedIn ? "Logged In" : "Logged Out"}</h4>
       </div>
     );
   };
