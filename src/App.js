@@ -9,6 +9,7 @@ class App extends React.Component {
     super()
     this.state = {
       todos: todosData,
+      isLoggedIn: false,
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -17,19 +18,17 @@ class App extends React.Component {
     this.setState(prevState => {
         const updatedTodos = prevState.todos.map(todo => {
           if (todo.id === id) {
-            todo.completed = !todo.completed
+            todo = {...todo, completed: !todo.completed}
           }
           return todo
         })
 
         console.log("Clicked ", id)
 
-        return (
-          {
-            todos: updatedTodos,
-          }
-        )
-      
+        return ({
+          todos: updatedTodos,
+          isLoggedIn: !prevState.isLoggedIn
+        })
     })
   }
 
@@ -39,7 +38,8 @@ class App extends React.Component {
     return (
       <div className="todo-list">
           {todoItems}
-    <h1>{this.state.ele}</h1>
+          <button onClick={this.handleChange}>{this.state.isLoggedIn ? "Log Out" : "Log In"}</button>
+          <h4>{this.state.isLoggedIn ? "Logged In" : "Logged Out"}</h4>
       </div>
     );
   };

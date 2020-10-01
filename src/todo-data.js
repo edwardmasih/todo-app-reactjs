@@ -15,7 +15,7 @@ const todosData = [
     userId: 1,
     id: 3,
     title: "Item 3",
-    completed: true,
+    completed: false,
   },
   {
     userId: 1,
