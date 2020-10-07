@@ -8,7 +8,7 @@
 }
 
 .todo-item:last-child {
-    background: red;
+    /* background: red; */
     border-bottom: 0;
 }
 
